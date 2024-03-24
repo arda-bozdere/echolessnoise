@@ -1,4 +1,4 @@
-body {
+obody {
   font-family: Arial, sans-serif;
 }
 
@@ -21,7 +21,7 @@ body {
   color: #fff;
 }
 
-.golden-dark-mode {
+.echo-mode {
   background-color: #303030;
   color:  #FFD700;
 }

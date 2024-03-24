@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const forwardButton = document.getElementById('forward');
   const volumeInput = document.getElementById('volume');
   const themeSelector = document.getElementById('themeSelector');
+  const songButtons = document.querySelectorAll('.song');
 
   fileInput.addEventListener('change', function (event) {
     const file = event.target.files[0];
@@ -38,5 +39,15 @@ document.addEventListener('DOMContentLoaded', function () {
   themeSelector.addEventListener('change', function () {
     const selectedTheme = themeSelector.value;
     document.body.className = selectedTheme + '-mode';
+  });
+
+  songButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const src = button.getAttribute('data-src');
+      if (src) {
+        audio.src = src;
+        audio.play();
+      }
+    });
   });
 });

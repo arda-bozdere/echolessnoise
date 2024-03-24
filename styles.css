@@ -1,31 +1,75 @@
-obody {
+body {
   font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #audioPlayer {
   max-width: 400px;
-  margin: 50px auto;
   text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#audio {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #controls {
+  margin-bottom: 20px;
+}
+
+#controls button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#volume {
+  width: 80%;
   margin-top: 10px;
 }
 
 #themes {
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-.dark-mode {
-  background-color: #333;
-  color: #fff;
+#themeSelector {
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
-.echo-mode {
-  background-color: #303030;
-  color:  #FFD700;
+#songs {
+  display: flex;
+  justify-content: center;
 }
 
 .song {
-  margin: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }

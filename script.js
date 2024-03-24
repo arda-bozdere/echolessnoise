@@ -1,18 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   const audio = document.getElementById('audio');
-  const fileInput = document.getElementById('audioFileInput');
   const backwardButton = document.getElementById('backward');
   const pauseButton = document.getElementById('pause');
   const forwardButton = document.getElementById('forward');
   const volumeInput = document.getElementById('volume');
   const themeSelector = document.getElementById('themeSelector');
-  const songButtons = document.querySelectorAll('.song');
-
-  fileInput.addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    const url = URL.createObjectURL(file);
-    audio.src = url;
-  });
+  const playRandomButton = document.getElementById('playRandom');
 
   backwardButton.addEventListener('click', function () {
     audio.currentTime -= 10;
@@ -41,13 +34,23 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.className = selectedTheme + '-mode';
   });
 
-  songButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      const src = button.getAttribute('data-src');
-      if (src) {
-        audio.src = src;
-        audio.play();
-      }
-    });
+  playRandomButton.addEventListener('click', function () {
+    fetchRandomTrack();
   });
+
+  function fetchRandomTrack() {
+    fetch('https://freemusicarchive.org/api/get/tracks.json?api_key=YOUR_API_KEY&limit=1')
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.dataset && data.dataset.length > 0) {
+          const track = data.dataset[0];
+          if (track && track.track_id && track.track_id > 0) {
+            const trackUrl = `https://freemusicarchive.org/track/${track.track_id}/${track.track_title}`;
+            audio.src = trackUrl;
+            audio.play();
+          }
+        }
+      })
+      .catch(error => console.error('Error fetching random track:', error));
+  }
 });

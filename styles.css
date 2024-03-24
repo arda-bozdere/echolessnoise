@@ -21,7 +21,11 @@ body {
   color: #fff;
 }
 
-.echo-mode {
-  background-color: darkgreen;
-  color: brown;
+.golden-dark-mode {
+  background-color: #3d2c00;
+  color: #ffd700;
+}
+
+.song {
+  margin: 5px;
 }
